@@ -1,0 +1,82 @@
+" Author: @YorkFish
+" Original name: _vimrc
+
+" 1. 设置配色方案
+colorscheme molokai
+
+" 2.1 隐藏菜单栏
+set guioptions-=m
+
+" 2.2 隐藏工具栏
+set guioptions-=T
+
+" 3. 显示行号
+set number
+
+" 4. 统一缩进数为 4
+set softtabstop=4
+set shiftwidth=4
+
+" 5. 设置 Tab 键为 4 个空格
+set tabstop=4
+
+" 6. 让空格代替 Tab
+set expandtab
+
+" 7. 启动语法高亮
+syntax on
+
+" 8. 设置字体
+set guifont=Consolas:h16
+
+" 9. 设置编码格式
+set encoding=utf-8
+
+" 10. 设置快速运行快捷键
+map <A-3> : s/^/# /
+map <A-4> : s/^# //
+map <F5> :!python %
+map <F6> :!pycodestyle %
+map <C-F5> :!gcc -fexec-charset=gbk %
+map <C-F6> :!a.exe
+
+" 11. 备用，防止乱码
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" ==========
+source $VIMRUNTIME/vimrc_example.vim
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg1 = substitute(arg1, '!', '\!', 'g')
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg2 = substitute(arg2, '!', '\!', 'g')
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let arg3 = substitute(arg3, '!', '\!', 'g')
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  let cmd = substitute(cmd, '!', '\!', 'g')
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
