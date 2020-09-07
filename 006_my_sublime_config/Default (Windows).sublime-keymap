@@ -1,0 +1,35 @@
+[
+    {
+        "keys": ["ctrl+alt+l"],
+        "command": "reindent",
+        "args": {"single_line": true}
+    },
+    {
+        "keys": ["ctrl+shift+c"],
+        "command": "exec",
+        "args": {"kill": true}
+    },
+    {
+        "keys": ["alt+space"],
+        "command": "auto_complete"
+    },
+    {
+        "keys": ["ctrl+f6"],
+        "command": "build",
+        "args": {"variant": "Run in Sublime"}
+    },
+    {
+        "keys": ["ctrl+f7"],
+        "command": "build",
+        "args": {"variant": "Run in CMD"}
+    },
+    {
+        "keys": ["ctrl+f8"],
+        "command": "build",
+        "args": {"variant": "gdb Debug"}
+    },
+    {
+        "keys": ["alt+t"],
+        "command": "add_current_time"
+    },
+]

@@ -1,0 +1,8 @@
+{
+    // 在默认浏览器中打开
+    "shell_cmd": "start ${file}",
+    "selector": "text.html",
+    
+    // 在指定浏览器中打开
+    // "shell_cmd": "\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\" ${file}",
+}

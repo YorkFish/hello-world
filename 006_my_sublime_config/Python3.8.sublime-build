@@ -1,0 +1,18 @@
+{
+    "encoding": "cp936",
+    "cmd": ["D:/anaconda3/python", "-u", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.python",
+
+    "variants":
+    [
+        {
+            "name": "Run in Sublime",
+            "shell_cmd": "cmd /c \"python ${file_name}\""
+        },
+        {
+            "name": "Run in CMD",
+            "shell_cmd": "start cmd /c \"python ${file_name} & pause\""
+        },
+    ]
+}
