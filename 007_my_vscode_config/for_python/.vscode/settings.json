@@ -1,0 +1,7 @@
+{
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'Cascadia Code PL'",
+    "editor.fontLigatures": true,
+    "python.pythonPath": "e:\\VSCodeProjects\\for_python\\env\\Scripts\\python.exe",
+    "workbench.colorTheme": "Monokai"
+}
