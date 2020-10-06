@@ -1,0 +1,65 @@
+{
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'Cascadia Code PL'",
+    "editor.fontLigatures": true,
+    "editor.wordWrap": "on",
+    "[markdown]": {
+        "editor.quickSuggestions": true
+    },
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=1xml"
+    ],
+    "python.pythonPath": "env\\Scripts\\python.exe",
+    "terminal.integrated.shell.windows": "D:\\Git\\bin\\bash.exe",
+    "vim.easymotion": false,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.statusBarColorControl": false,
+    "vim.insertModeKeyBindings": [
+    {
+        "before": ["j", "k"],
+        "after": ["<Esc>"]
+    }
+    ],
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+    {
+        "before": ["<leader>", "<CR>"],
+        "commands": [":nohl"]
+    },
+    {
+        "before": ["S"],
+        "commands": [":w"]
+    },
+    {
+        "before": ["Q"],
+        "commands": [":q"]
+    },
+    {
+        "before": ["H"],
+        "after": ["^"]
+    },
+    {
+        "before": ["L"],
+        "after": ["$"]
+    },
+    {
+        "before": ["E"],
+        "after": ["g", "T"]
+    },
+    {
+        "before": ["R"],
+        "after": ["g", "t"]
+    }
+    ],
+    "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+    },
+    "workbench.colorTheme": "Monokai"
+}

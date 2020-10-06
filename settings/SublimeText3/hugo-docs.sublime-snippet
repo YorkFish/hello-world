@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+---
+title: "${1:title}"
+description: ""
+date: 2020-${2:month}-${3:day}T00:00:00+08:00
+draft: false
+weight: ${4:weight}
+---
+
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>hugodoc</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.html.markdown</scope>
+</snippet>

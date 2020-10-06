@@ -14,5 +14,9 @@
             "name": "Run in CMD",
             "shell_cmd": "start cmd /c \"python ${file_name} & pause\""
         },
+        {
+            "name": "pylint pep8",
+            "shell_cmd": "cmd /c \"pycodestyle ${file_name}\""
+        }
     ]
 }

@@ -20,6 +20,6 @@
         {
             "name": "Run in CMD",
             "shell_cmd": "mingw32-make run"
-        },
+        }
     ]
 }

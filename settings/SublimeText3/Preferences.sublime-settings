@@ -2,7 +2,7 @@
 	"auto_complete_commit_on_tab": true,
 	"channels":
 	[
-		"E:/SublimeProjects/channel_v3.json"
+		"D:/SublimeText3/channel_v3.json"
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
 	"font_face": "Cascadia Code PL",

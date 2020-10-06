@@ -1,3 +1,8 @@
 # hello-world
 
-store my ideas, my exercise codes and interesting codes found in learning
+```python
+store = []
+store.append(codes)
+store.append(ideas)
+stroe.append(settings)
+```

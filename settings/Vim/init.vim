@@ -104,6 +104,7 @@ noremap <right> :vertical resize+5<CR>
 noremap sf <C-w>t<C-w>K
 noremap sv <C-w>t<C-w>H
 noremap <LEADER>q <C-w>j:q<CR>
+noremap st :set splitright<CR>:vsplit<CR>:term<CR>3jA
 
 " 8. Tab management
 noremap tu :tabe<CR>
@@ -126,10 +127,12 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 map <LEADER>sc :set spell!<CR>
 
 " 12. one click execution
-map <A-3> :s/^/# /<CR>
-map <A-4> :s/^# //<CR>
-map <F6> :!python %<CR>
-map <F7> :!pycodestyle %<CR>
+noremap <A-3> :s/^/# /<CR>
+noremap <A-4> :s/^# //<CR>
+noremap <F6> :w<CR>:!python %<CR>
+noremap <F7> :w<CR>:!pycodestyle %<CR>
+noremap <A-5> :!gcc -Wall %<CR>
+noremap <A-6> :!a.exe<CR>
 
 " 13. Compile function
 noremap m :call CompileRun()<CR>
@@ -152,6 +155,7 @@ endfunc
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " nerdtree
@@ -160,3 +164,44 @@ let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeAutoCenter=1
 let NERDTreeShowLineNumbers=1
+
+" Coc.nvim
+" TextEdit might fail if hidden is not set.
+set hidden
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <s-space> coc#refresh()
+
+" Use `<space>-` and `<space>+` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
+nmap <silent> <LEADER>+ <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use `<space>h` to show documentation in preview window.
+nnoremap <silent> <LEADER>h :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)

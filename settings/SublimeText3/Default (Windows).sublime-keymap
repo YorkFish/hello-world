@@ -29,7 +29,12 @@
         "args": {"variant": "gdb Debug"}
     },
     {
+        "keys": ["ctrl+f9"],
+        "command": "build",
+        "args": {"variant": "pylint pep8"}
+    },
+    {
         "keys": ["alt+t"],
         "command": "add_current_time"
-    },
+    }
 ]

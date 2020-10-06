@@ -1,0 +1,21 @@
+<snippet>
+    <content><![CDATA[
++++
+author = "YorkFish"
+title = "${1:title}"
+date = "2020-${2:month}-${3:day}"
+# description = "${4:description}"
+tags = [
+    "${5:tag}",
+]
+image = ""
++++
+
+${6:content}
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>hugoblog</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.html.markdown</scope>
+</snippet>
