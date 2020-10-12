@@ -54,7 +54,6 @@ noremap ; :
 noremap Q :q<CR>
 noremap <C-q> :qa<CR>
 noremap S :w<CR>
-nnoremap < <<
 nnoremap > >>
 
 let mapleader=" "
@@ -70,7 +69,6 @@ noremap <LEADER>rc :e ~/AppData/Local/nvim/init.vim<CR>
 noremap R :source $MYVIMRC<CR>
 
 " 5. Cursor Movement
-noremap <silent> K 5k
 noremap <silent> J 5j
 noremap <silent> H 0
 noremap <silent> L $
@@ -79,10 +77,9 @@ noremap B 5b
 noremap sr :set relativenumber<CR>
 noremap sn :set norelativenumber<CR>
 
-" 6. Insert Mode Cursor Movement
+" 6. Insert Mode Cursor
+inoremap jk <Esc>
 inoremap <C-a> <ESC>A
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
 
 " 7. Window management
 noremap <C-U> 5<C-y>
@@ -166,7 +163,6 @@ let NERDTreeAutoCenter=1
 let NERDTreeShowLineNumbers=1
 
 " Coc.nvim
-" TextEdit might fail if hidden is not set.
 set hidden
 
 inoremap <silent><expr> <TAB>
@@ -181,13 +177,8 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <s-space> coc#refresh()
-
-" Use `<space>-` and `<space>+` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <LEADER>+ <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
